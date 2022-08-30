@@ -24,15 +24,6 @@ import {
   processListFilesResponses
 } from './utils';
 
-const LOGO: string = `
-██████╗ ███████╗ ██████╗ █████╗ ████████╗██╗  ██╗██╗      ██████╗ ███╗   ██╗
-██╔══██╗██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║  ██║██║     ██╔═══██╗████╗  ██║
-██║  ██║█████╗  ██║     ███████║   ██║   ███████║██║     ██║   ██║██╔██╗ ██║
-██║  ██║██╔══╝  ██║     ██╔══██║   ██║   ██╔══██║██║     ██║   ██║██║╚██╗██║
-██████╔╝███████╗╚██████╗██║  ██║   ██║   ██║  ██║███████╗╚██████╔╝██║ ╚████║
-╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝
-`;
-
 const args: ToolkitOptions = {
   event: ['pull_request.opened', 'pull_request.synchronize'],
   secrets: ['GITHUB_TOKEN']
@@ -93,7 +84,6 @@ const fetchAllFiles = (listFiles, log, params: PullsListFilesParams, per_page: n
 };
 
 Toolkit.run(async (toolkit: Toolkit) => {
-    toolkit.log.info('Open sourced by\n' + LOGO);
 
     toolkit.log.info('Running Action');
     const configPath: string = process.env.CONFIG_PATH ? process.env.CONFIG_PATH : '.github/label-pr.yml';
